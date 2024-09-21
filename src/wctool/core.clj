@@ -20,17 +20,16 @@
       (print)))
 
 (defn default-command [value]
-  (print (c-command value) (l-command value) (w-command value)))
+  (println value)
+  (print (c-command value) " " (l-command value) " " (w-command value) " "))
 
-(defn run [& args]
-  (println args)
-  (doseq [arg args]
-    (let [command (str (first (first arg)))
-          value (str (second (first arg)))]
-      (case command
-        "-c" (c-command value)
-        "-l" (l-command value)
-        "-w" (w-command value)
-        "-m" (m-command value)
-        (default-command value))
-      (print " " value))))
+(defn -main [& args]
+  (let [command (when (str (first args)) (str (first args)))
+        value (when (str (second args)) (str (second args)))]
+    (case command
+      "-c" (c-command value)
+      "-l" (l-command value)
+      "-w" (w-command value)
+      "-m" (m-command value)
+      (default-command command))
+    (print " " value)))
