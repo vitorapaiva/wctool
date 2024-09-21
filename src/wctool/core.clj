@@ -1,4 +1,4 @@
-(ns wctool
+(ns wctool.core
   (:require [clojure.java.io :as io]
             [clojure.string :refer [split]]))
 
@@ -23,10 +23,11 @@
   (print (c-command value) (l-command value) (w-command value)))
 
 (defn run [& args]
+  (println args)
   (doseq [arg args]
     (let [command (str (first (first arg)))
           value (str (second (first arg)))]
-      (case command 
+      (case command
         "-c" (c-command value)
         "-l" (l-command value)
         "-w" (w-command value)
