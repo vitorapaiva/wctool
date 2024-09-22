@@ -19,13 +19,16 @@
       (count)
       (print)))
 
-(defn default-command [value]
-  (println value)
-  (print (c-command value) " " (l-command value) " " (w-command value) " "))
+(defn default-command [value] 
+  (c-command value)
+  (print " ")
+  (l-command value)
+  (print " ")
+  (w-command value))
 
 (defn -main [& args]
-  (let [command (when (str (first args)) (str (first args)))
-        value (when (str (second args)) (str (second args)))]
+  (let [command (str (first args))
+        value (if (empty? (str (second args))) command (str (second args)))]
     (case command
       "-c" (c-command value)
       "-l" (l-command value)
