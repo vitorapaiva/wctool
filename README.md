@@ -16,7 +16,20 @@ Challenge from [Coding Challenges](https://codingchallenges.fyi/challenges/chall
 
 ## Usage
 
-FIXME
+- All info: 
+`lein run -m wctool.core test/wctool/resources/test.txt`
+
+- -c command
+`lein run -m wctool.core -c test/wctool/resources/test.txt`
+
+- -l command
+`lein run -m wctool.core -l test/wctool/resources/test.txt`
+
+- -w command
+`lein run -m wctool.core -w test/wctool/resources/test.txt`
+
+- -m command
+`lein run -m wctool.core -m test/wctool/resources/test.txt`
 
 ## License
 
